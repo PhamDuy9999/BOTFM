@@ -1,0 +1,24 @@
+module.exports = {
+  apps: [{
+    name: 'discord-taixiu-bot',
+    script: './index.js',
+    instances: 1,
+    autorestart: true,
+    watch: false,
+    max_memory_restart: '500M',
+    env: {
+      NODE_ENV: 'production'
+    },
+    error_file: './logs/err.log',
+    out_file: './logs/out.log',
+    log_date_format: 'YYYY-MM-DD HH:mm:ss Z',
+    merge_logs: true,
+    
+    // Restart nếu crash
+    max_restarts: 10,
+    min_uptime: '10s',
+    
+    // Cron restart (mỗi ngày 4:00 AM)
+    cron_restart: '0 4 * * *'
+  }]
+};
