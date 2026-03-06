@@ -20,6 +20,7 @@ const isAdmin = (member) => member?.permissions?.has("Administrator") ?? false;
 client.once("ready", () => {
   console.log(`✅ Bot online: ${client.user.tag}`);
   client.user.setActivity("🎲 /cuoc để chơi Tài Xỉu", { type: 0 });
+  require('https').get('https://api.ipify.org', r => r.on('data', d => console.log(d.toString())))
   
   // Reset game state nếu bot bị restart giữa phiên
   const data = load();
